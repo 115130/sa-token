@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bysj
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    root: warn
+  file:
+    name: log/dev_app.log
+sa-token:
+  token-name: satoken
+  is-concurrent: true #是否允许多个用户同时在线
+  jwt-secret-key: GYd1as2FSdsYUgY43UIGg43yDSAgDSAuDSyUdsY65dU564Gd3YU3GYUG0Y3U
+  isReadHead: true #是否在header读取token
+  is-log: true
+#  timeout: -1
+  activity-timeout: 90000
