@@ -2,7 +2,7 @@ package com.bysj.satoken.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.bysj.satoken.entity.User;
-import com.bysj.satoken.entity.vo.UserVo;
+import com.bysj.satoken.entity.front.UserVo;
 import com.bysj.satoken.service.IUserService;
 import com.bysj.satoken.utils.Response;
 import io.swagger.annotations.ApiOperation;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @ApiOperation("登陆接口")
-@RequestMapping("user")
+@RequestMapping("login")
 @CrossOrigin
 @RestController
 @Slf4j

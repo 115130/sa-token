@@ -2,7 +2,7 @@ package com.bysj.satoken.service;
 
 import com.bysj.satoken.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bysj.satoken.entity.vo.UserVo;
+import com.bysj.satoken.entity.front.UserVo;
 
 import java.util.List;
 

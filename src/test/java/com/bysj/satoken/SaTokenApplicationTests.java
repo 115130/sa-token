@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.bysj.satoken.entity.User;
 import com.bysj.satoken.service.IAuthorityService;
+import com.bysj.satoken.service.IUserInfoService;
 import com.bysj.satoken.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,6 +46,15 @@ class SaTokenApplicationTests {
 
     @Resource
     IAuthorityService authorityService;
+
+    @Resource
+    IUserInfoService userInfoService;
+
+    @Test
+    void t2(){
+//        UserInfoFrontVo userInfo = userInfoService.getUserInfo();
+//        System.out.println(userInfo);
+    }
 
     @Test
     public void t(){

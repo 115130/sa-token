@@ -24,29 +24,29 @@ public class SaTokenConfig implements WebMvcConfigurer {
         return new StpLogicJwtForMix();
     }
 
-    //路由器鉴权
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-
-        registry.addInterceptor(new SaRouteInterceptor((req, res, handler) -> {
-            //需要排除options请求
-            if (!req.getMethod().equals(HttpMethod.OPTIONS.toString())){
-                log.error("路由器鉴权");
-//             第一个参数是拦截路径，第二个是排除的路径，第三个是对拦截的路径做什么
-//                SaRouter.match("/**", "/user/login", r -> StpUtil.checkLogin());
-//             角色认证 -- 拦截以 admin 开头的路由，必须具备 admin 角色或者 super-admin 角色才可以通过认证
-//            SaRouter.match("/admin/**", r -> StpUtil.checkRoleOr("admin", "super-admin"));
-                // 权限认证 -- 不同模块认证不同权限
-                SaRouter.match("/user/test1", r -> {
-                    String permission = "12";
-                    System.out.println(StpUtil.getTokenInfo());
-                    StpUtil.checkPermission(permission);
-                });
-//            SaRouter.match("/user/**", r -> StpUtil.checkPermissionAnd("user"));
-//            SaRouter.match("/user/**", r -> StpUtil.checkPermissionOr("user"));
-            }
-        })).excludePathPatterns("/user/login");
-    }
+    /**
+     * 路由器鉴权
+     */
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new SaRouteInterceptor((req, res, handler) -> {
+//            //需要排除options请求
+//            if (!req.getMethod().equals(HttpMethod.OPTIONS.toString())) {
+//                log.warn("路由开始鉴权");
+//                SaRouter.match("/**","/swagger**", r -> StpUtil.checkLogin());
+//
+//                // 权限认证 -- 不同模块认证不同权限
+//                SaRouter.match("/user/test1", r -> {
+//                    String permission = "12";
+//                    System.out.println(StpUtil.getTokenInfo());
+//                    StpUtil.checkPermission(permission);
+//                });
+//                SaRouter.match("/user/info", r -> StpUtil.checkPermissionAnd("00"));
+///*            SaRouter.match("/user/**", r -> StpUtil.checkPermissionAnd("user"));
+//            SaRouter.match("/user/**", r -> StpUtil.checkPermissionOr("user"));*/
+//            }
+//        })).excludePathPatterns("/login/login","/login/logout").excludePathPatterns("/swagger-resources/**","/favicon.ico","/webjars/**","/v2/**","/error","/swagger-ui/**");
+//    }
 
     /**
      * 注册 [Sa-Token全局过滤器]

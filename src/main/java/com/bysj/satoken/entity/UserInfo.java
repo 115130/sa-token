@@ -1,9 +1,13 @@
 package com.bysj.satoken.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -36,9 +40,11 @@ public class UserInfo implements Serializable {
     @ApiModelProperty("性别")
     private String gender;
 
-    private LocalDateTime gmtCreate;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date gmtModified;
 
-    private LocalDateTime gmtModified;
+    @TableField(fill = FieldFill.INSERT)
+    private Date gmtCreate;
 
     private Integer isDeleted;
 

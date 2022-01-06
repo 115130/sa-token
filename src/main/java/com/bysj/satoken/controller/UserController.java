@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/satoken/user")
+@RequestMapping("/user")
 @Slf4j
 public class UserController {
     @Resource

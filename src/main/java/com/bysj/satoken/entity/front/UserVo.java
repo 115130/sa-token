@@ -1,4 +1,4 @@
-package com.bysj.satoken.entity.vo;
+package com.bysj.satoken.entity.front;
 
 import lombok.Data;
 
